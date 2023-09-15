@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+           
+        }
+        #buttons {
+            margin-top: 100px;
+        }
+        #registration-form {
+            display: none;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label, input {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Registration Page</h1>
+    <div id="buttons">
+        <button id="buyerButton">Register as Buyer</button>
+        <button id="sellerButton">Register as Seller</button>
+    </div>
+    
+    <div id="registration-form">
+        <form id="buyerForm" action="process_buyer_registration.php" method="POST">
+            <h2>Buyer Registration</h2>
+            <label for="buyerUsername">Username:</label>
+            <input type="text" id="buyerUsername" name="buyerUsername" required>
+
+            <label for="buyerEmail">Email:</label>
+            <input type="email" id="buyerEmail" name="buyerEmail" required>
+
+            <label for="buyerPassword">Password:</label>
+            <input type="password" id="buyerPassword" name="buyerPassword" required>
+
+            <label for="trasactionMethod">transaction:</label>
+      <select>
+          
+              <option value="creditCard">Credit Card</option>
+              <option value="debitCard">Debit Card</option>
+              <option value="visa">Visa</option>
+              <option value="otherBank">Other Bank</option>
+          </select><br>
+              
+              
+            
+
+            <button type="submit">Register as Buyer</button>
+        </form>
+        
+        <form id="sellerForm" action="process_seller_registration.php" method="POST">
+            <h2>Seller Registration</h2>
+            <label for="sellerUsername">Username:</label>
+            <input type="text" id="sellerUsername" name="sellerUsername" required>
+
+            <label for="sellerEmail">Email:</label>
+            <input type="email" id="sellerEmail" name="sellerEmail" required>
+
+            <label for="sellerPassword">Password:</label>
+            <input type="password" id="sellerPassword" name="sellerPassword" required>
+
+            <button type="submit">Register as Seller</button>
+        </form>
+    </div>
+
+    <script>
+        const buyerButton = document.getElementById("buyerButton");
+        const sellerButton = document.getElementById("sellerButton");
+        const buyerForm = document.getElementById("buyerForm");
+        const sellerForm = document.getElementById("sellerForm");
+        const registrationForm = document.getElementById("registration-form");
+
+        buyerButton.addEventListener("click", () => {
+            sellerForm.style.display = "none";
+            buyerForm.style.display = "block";
+            registrationForm.style.display = "block";
+        });
+
+        sellerButton.addEventListener("click", () => {
+            buyerForm.style.display = "none";
+            sellerForm.style.display = "block";
+            registrationForm.style.display = "block";
+        });
+    </script>
+</body>
+</html>
